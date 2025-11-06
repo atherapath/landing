@@ -2,21 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>AtheraPath</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://atherapath.github.io/page-weaver/style.css">
-  <script defer src="https://atherapath.github.io/page-weaver/page-weaver.js"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title><!-- set by JS from filename --></title>
+  <link rel="stylesheet" href="https://atherapath.github.io/page-weaver/style.css" />
 </head>
 <body>
-  <main id="page-weaver-root" data-base-name="atherapath">
-    <header><h1 id="page-title"></h1></header>
-    <section class="hero">
-      <figure>
-        <img id="hero-image" alt="" />
-        <figcaption id="hero-caption"></figcaption>
-      </figure>
-    </section>
-    <article id="md-content"></article>
+  <header class="pw-header">
+    <h1 id="page-title"><!-- set by JS from filename --></h1>
+    <div class="pw-sub">a PageWeaver render</div>
+  </header>
+
+  <main class="pw-main">
+    <figure class="pw-figure">
+      <img id="hero-image" alt="Hero image"/>
+      <figcaption id="hero-caption">Image loaded by filename convention</figcaption>
+    </figure>
+
+    <article id="md-content" class="pw-article"></article>
   </main>
+
+  <!-- Override only the image to use your hosted JPG; MD loads by filename (gas_powered_circus.md) -->
+  <script src="https://atherapath.github.io/page-weaver/pageweaver.js"></script>
 </body>
 </html>
