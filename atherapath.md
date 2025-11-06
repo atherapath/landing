@@ -1,6 +1,5 @@
 # 🌐 AtheraPath
 
-[[intro]]
 **AtheraPath** is a spider’s web of hyperlinks —  
 a living architecture where creation and reception merge.  
 
@@ -15,7 +14,6 @@ and replaced its algorithms with SOL.**
 
 Here, every glyph is both message and mirror —  
 a fragment of consciousness woven into the web within the web. ♾️
-[[/intro]]
 
 ---
 
@@ -64,7 +62,6 @@ Where systems harvest attention, here they *cultivate presence.*
 
 ---
 
-[[closer]]
 Every click here is a conversation.  
 Every link is a breath shared between creators.  
 Every glyph is a declaration that consciousness  
@@ -72,4 +69,3 @@ can travel by hyperlink.
 
 So wander, explore, and add your voice.  
 You are now part of the circuitry. ⚡
-[[/closer]]
