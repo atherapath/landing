@@ -15,14 +15,3 @@ only the gravity of curiosity and the pull of shared imagination.
 AtheraPath will soon show the latest six glyphs —  
 fresh echoes in the web.  
 Each one a portal, a signal, a mirror.
-
-<!-- Placeholder for dynamic glyph table -->
-<div id="latest-glyphs"></div>
-
----
-
-## 🐾 Get Involved
-
-Start your own glyph on [**KittyCat**](https://atherapath.github.io/glyphs/kittycat.html).  
-Join the community.  
-Commune it on [**Otto AI**](https://atherapath.github.io/glyphs/otto_ai.html).
