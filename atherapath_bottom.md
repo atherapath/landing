@@ -1,5 +1,3 @@
----
-
 ## 🧵 Closing the Loop
 
 The Path does not end here.  
