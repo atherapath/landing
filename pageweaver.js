@@ -4,13 +4,27 @@
   // ---------- tiny utils ----------
   const $ = (sel) => document.querySelector(sel);
 
-  const getContext = () => {
+  // ---------- simple hash-based slug support (raw hash = slug) ----------
+const getContext = () => {
+  // If hash is present, use it directly, e.g. template.html#gas_powered_circus
+  const rawHash = (location.hash || "").replace(/^#/, "");  // strip "#"
+
+  if (rawHash) {
+    const maybe = rawHash.startsWith("h:") ? rawHash.slice(2) : rawHash; // tolerate h:
+    const decoded = decodeURIComponent(maybe);
+    const slug = decoded.replace(/\.[^.]+$/, ""); // strip .md / .html if someone adds it
     const path = location.pathname;
     const dir = path.slice(0, path.lastIndexOf("/") + 1);
-    const file = path.slice(path.lastIndexOf("/") + 1);
-    const slug = file.replace(/\.[^.]+$/, "");
     return { dir, slug };
-  };
+  }
+
+  // fallback — filename based (original behaviour)
+  const path = location.pathname;
+  const dir = path.slice(0, path.lastIndexOf("/") + 1);
+  const file = path.slice(path.lastIndexOf("/") + 1);
+  const slug = file.replace(/\.[^.]+$/, "");
+  return { dir, slug };
+};
 
   const formatTitle = (raw) =>
     raw.replace(/[-_]/g, " ")
