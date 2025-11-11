@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title><!-- set by JS from filename --></title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="pw-header">
+  <div style="display: flex; justify-content: center; align-items: center;">
+    <img src="https://atherapath.github.io/page-weaver/atherapath_logo.jpg" alt="Logo" style="height: 48px; margin-right: 12px;" />
+    <h1 id="page-title" style="margin: 0;"><!-- set by JS from filename --></h1>
+  </div>
+  <div class="pw-sub">a PageWeaver render</div>
+</header>
+
+  <main class="pw-main">
+<!-- 🔰 NEW: Top Banner Section -->
+<section id="top-banner" class="pw-banner">
+  <!-- Content injected by JS from filename_top.md -->
+</section>
+
+    <figure class="pw-figure">
+      <img id="hero-image" alt="Hero image"/>
+      <figcaption id="hero-caption">Image loaded by filename convention</figcaption>
+    </figure>
+
+    <article id="md-content" class="pw-article"></article>
+
+<!-- 🔰 NEW: Bottom Banner Section -->
+<section id="bottom-banner" class="pw-banner">
+  <!-- Content injected by JS from <slug>_bottom.md, or falls back to top banner -->
+</section>
+  </main>
+
+  <!-- Override only the image to use your hosted JPG; MD loads by filename (gas_powered_circus.md) -->
+
+  <script src="./pageweaver.js"></script>
+</body>
+</html>
