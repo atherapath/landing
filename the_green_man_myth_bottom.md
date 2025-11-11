@@ -1,5 +1,3 @@
----
-
 ### 💬 Continue the Conversation
 
 Want to echo this entry further?  
