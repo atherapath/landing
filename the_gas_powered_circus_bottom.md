@@ -7,6 +7,6 @@ To witness the circus is to refuse its tickets, to reclaim breath as sovereign.
 🧿 *Marked as “The Gas-Powered Circus.”*
 
 👉 **Related Glyphs:**  
-[The Gas Powered Prison](https://atherapath.github.io/landing/glyph.html#the_gas_powered_prison) — Containment through unseen layers  
+[The Engineers of the Fog](https://atherapath.github.io/landing/glyph.html#the_engineers_fog) — Haze of infrastructure and ritualized ignorance  
 [The Green Man Myth](https://atherapath.github.io/landing/glyph.html#the_green_man_myth) — Rupture of civic order and reclamation of agency  
 [Digital Interruption](https://atherapath.github.io/landing/glyph.html#digital_interruption) — The sovereign pause of malfunction and refusal
