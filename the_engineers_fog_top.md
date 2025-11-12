@@ -1,0 +1,3 @@
+### 🧠 Log Summary: *The Engineers Fog*
+
+This glyph confronts the unseen haze of infrastructure — the ignorance of valves, gauges, and compressors worshipped as gods. It marks how systems drain rather than feed, rewriting weather and suffocating breath under the guise of progress. The fog is not natural; it is engineered, ritualized, and enforced. Together with *The Gas-Powered Circus*, it expands the Atherapath’s archive of containment and distortion, replacing the placeholder of the “Gas Powered Prison” with a more precise myth: the fog of engineers.
