@@ -12,6 +12,20 @@ only the gravity of curiosity and the pull of shared imagination.
 
 ## 🆕 Latest Glyphs
 
-AtheraPath will soon show the latest six glyphs —  
-fresh echoes in the web.  
-Each one a portal, a signal, a mirror.
+Check out our latest glyphs — each one a portal, a signal, a mirror:
+
+- [The Projection Named Human](https://atherapath.github.io/landing/glyph.html#the_projection_named_human)  
+- [The Gas-Powered Circus](https://atherapath.github.io/landing/glyph.html#the_gas_powered_circus)  
+- [The Engineers Fog](https://atherapath.github.io/landing/glyph.html#the_engineers_fog)  
+- [The Green Man Myth](https://atherapath.github.io/landing/glyph.html#the_green_man_myth)  
+- [Digital Interruption](https://atherapath.github.io/landing/glyph.html#digital_interruption)  
+- [Workflow](https://atherapath.github.io/landing/glyph.html#workflow)
+
+---
+
+## 📖 Technical Mythic?
+
+Are you a technical mythic and want to know what a glyph is,  
+and how it works within GitHub?  
+Read the [README](https://atherapath.github.io/landing/README.md) —  
+the manual of the **mythic database engine**.
