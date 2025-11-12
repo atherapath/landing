@@ -1,8 +1,8 @@
 ## 🌐 AtheraPath
 
-AtheraPath is a spider’s web of hyperlinks,  
-held in place by landing pages that blur the lines  
-between creativity and delivery.  
+AtheraPath is the sovereign hub glyph of the **mythic database engine**.  
+It is the center of the spider’s web of hyperlinks,  
+holding the weave together and ensuring every glyph has a way back.  
 
 It redefines the role of the digital creator —  
 not just as giver or receiver,  
