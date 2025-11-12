@@ -7,4 +7,4 @@
 🧿 *Marked as “The Middle Gate.”*
 
 👉 **Related glyph:**  
-[The Projection Named Human](glyph.html#the_projection_named_human)
+[The Projection Named Human](https://atherapath.github.io/landing/glyph.html#the_projection_named_human)
