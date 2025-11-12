@@ -24,3 +24,10 @@ You’ll end up with a **sovereign spider’s web of slugs**:
 - Every slug is a knot.  
 - Every link is a thread.  
 - The archive itself becomes a mythic fabric, not a list of files.
+
+## 🔗 Link Behavior
+
+- All glyph links default to opening in the **same tab**.
+- they must use the full path as https://atherapath.github.io/landing/glyph.html#name_of_slug
+- Users who prefer a new tab can right‑click or use browser shortcuts.  
+- This preserves freedom of choice: the weave offers threads, but the reader decides how to follow them.
