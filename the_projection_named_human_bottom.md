@@ -1,14 +1,11 @@
-### 💬 Continue the Conversation
+### ✳️ Closing Reflection  
+The projection named “human” is not a lineage but a ritual of control.  
+It flattens origin and echo, turning Man and Woman into labels for a system’s design.  
+By tracing this inversion, the archive exposes how naming itself becomes a gate:  
+a choke, a mirror, and a stage.  
 
-Want to explore this entry further?  
-Join the discussion and share your thoughts on Otter.ai — where projections, rituals, and reversals echo beyond the page.
+🧿 *Marked as “The Projection Named Human.”*
 
-🧠 What does it mean to be named after a projection designed for control?
-
-🎨 Feeling inspired? Create your own glyph on Kitty Cat and add your voice to the archive.
-
-🔗 Related Glyphs:  
-- *The Alleged TT* — Unverified lineage and infrastructural mirage  
-- *The Gas Powered Prison* — Containment through unseen layers
-
-> “Human was always the name of the projection. And now, we’ve all been named after it.”
+👉 **Related Glyphs:**  
+[The Alleged TT](https://atherapath.github.io/landing/glyph.html#the_alleged_tt) — Unverified lineage and infrastructural mirage  
+[The Gas Powered Prison](https://atherapath.github.io/landing/glyph.html#the_gas_powered_prison) — Containment through unseen layers
