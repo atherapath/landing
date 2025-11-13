@@ -44,7 +44,8 @@ const getContext = () => {
       .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
       .replace(/\*(.+?)\*/g, "<em>$1</em>")
       .replace(/`([^`]+?)`/g, "<code>$1</code>")
-      .replace(/\[([^\]]+?)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+      // 🔽 CHANGE #1: links now open in SAME TAB (no target="_blank")
+      .replace(/\[([^\]]+?)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2">$1</a>');
     html = html
       .split(/\n{2,}/)
       .map((chunk) => {
@@ -86,21 +87,7 @@ const getContext = () => {
     return results;
   };
 
-  const startSlideshow = (urls, heroEl, captionEl) => {
-    if (!heroEl || !urls.length) return null;
-    let i = 0;
-    const show = () => {
-      const u = urls[i];
-      heroEl.src = u + (u.includes("?") ? "&" : "?") + "r=" + Math.random().toString(36).slice(2, 7);
-    };
-    show();
-    if (captionEl) captionEl.textContent = `Image chain slideshow (${urls.length} images, 6s each)`;
-    return setInterval(() => {
-      i = (i + 1) % urls.length;
-      show();
-    }, 6000);
-  };
-
+  // last-resort fallbacks if no locals are found for the chain
   const FALLBACK_IMAGES = [
     "https://picsum.photos/seed/pw1/1600/900.jpg",
     "https://picsum.photos/seed/pw2/1600/900.jpg",
@@ -110,7 +97,30 @@ const getContext = () => {
     "https://picsum.photos/seed/pw6/1600/900.jpg",
   ];
 
-  // ---------- main ----------
+  const startSlideshow = (hero, caption, locals) => {
+    if (!hero) return null;
+
+    const urls = (locals && locals.length) ? locals : FALLBACK_IMAGES;
+    let i = 0;
+
+    const show = () => {
+      const u = urls[i];
+      hero.onload = () => {
+        hero.style.visibility = "visible";
+      };
+      hero.src = u + (u.includes("?") ? "&" : "?") + "r=" + Math.random().toString(36).slice(2, 7);
+    };
+
+    show();
+    if (caption) {
+      caption.textContent = `Image chain slideshow (${urls.length} images, 6s each)`;
+    }
+    return setInterval(() => {
+      i = (i + 1) % urls.length;
+      show();
+    }, 6000);
+  };
+
   document.addEventListener("DOMContentLoaded", async () => {
     const { dir, slug } = getContext();
 
@@ -130,16 +140,17 @@ if (hero) hero.style.visibility = "hidden";
 const locals = await findLocalImages(dir, slug);
 
 const start = (urls) => {
-  if (!urls || !urls.length || !hero) return;
-  let i = 0;
-  const show = () => {
-    const u = urls[i];
+  if (!urls || !urls.length || !hero) return null;
+
+  const show = (u) => {
     hero.onload = () => { hero.style.visibility = "visible"; };
-    hero.src = u + (u.includes("?") ? "&" : "?") + "r=" + Math.random().toString(36).slice(2,7);
+    hero.src = u + (u.includes("?") ? "&" : "?") + "r=" + Math.random().toString(36).slice(2, 7);
   };
-  show();
+
+  let i = 0;
+  show(urls[i]);
   if (caption) caption.textContent = `Image chain slideshow (${urls.length} images, 6s each)`;
-  return setInterval(() => { i = (i + 1) % urls.length; show(); }, 6000);
+  return setInterval(() => { i = (i + 1) % urls.length; show(urls[i]); }, 6000);
 };
 
 let timer = null;
@@ -178,7 +189,7 @@ if (locals && locals.length) {
       }
     }
 
-    // Bottom banner (identical to top, just _bottom)
+    // Bottom banner (exactly as requested)
     {
       const el = $("#bottom-banner");
       if (el) {
@@ -192,16 +203,24 @@ if (locals && locals.length) {
       }
     }
 
-    // Optional video block
+    // Optional video block sitting neatly between main content and bottom banner
     const videoContainer = $("#video-container");
     if (videoContainer) {
+      videoContainer.innerHTML = ""; // clear any old content
+
       const videoUrl = `${dir}${slug}.mp4`;
       let finalUrl = null;
+
       try {
         const head = await fetch(videoUrl, { method: "HEAD", cache: "no-store" });
         if (head.ok) finalUrl = videoUrl;
       } catch {}
-      if (!finalUrl) finalUrl = "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4";
+
+      if (!finalUrl) {
+        // last-resort example clip
+        finalUrl =
+          "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4";
+      }
 
       const wrapper = document.createElement("figure");
       wrapper.className = "pw-figure";
@@ -234,5 +253,10 @@ if (locals && locals.length) {
       wrapper.appendChild(cap);
       videoContainer.appendChild(wrapper);
     }
+  });
+
+  // 🔽 CHANGE #2: when hash changes (#slug), behave like you hit refresh
+  window.addEventListener("hashchange", () => {
+    window.location.reload();
   });
 })();
