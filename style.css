@@ -35,6 +35,12 @@ body {
   text-shadow: 0 0 6px rgba(60,255,0,.35);
 }
 .pw-sub { color: var(--fg-dim); font-size: .95rem; opacity: .9; }
+.pw-sub a {
+  color: var(--accent); /* bright scanline green */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
 .pw-sub a:hover {
   color: var(--fg-dim); /* dim green hover */
   text-decoration: underline;
