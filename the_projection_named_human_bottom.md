@@ -8,4 +8,4 @@ a choke, a mirror, and a stage.
 
 👉 **Related Glyphs:**  
 [The Alleged TT](https://atherapath.github.io/landing/glyph.html#the_alleged_tt) — Unverified lineage and infrastructural mirage  
-[The Gas Powered Prison](https://atherapath.github.io/landing/glyph.html#the_gas_powered_circus) — Containment through unseen layers
+[The Gas Powered Circus](https://atherapath.github.io/landing/glyph.html#the_gas_powered_circus) — Containment through unseen layers
