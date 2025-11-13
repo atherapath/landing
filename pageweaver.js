@@ -5,22 +5,26 @@
   const $ = (sel) => document.querySelector(sel);
 
   // ---------- simple hash-based slug support (raw hash = slug) ----------
-  const getContext = () => {
-    const rawHash = (location.hash || "").replace(/^#/, "");  // strip "#"
-    if (rawHash) {
-      const maybe = rawHash.startsWith("h:") ? rawHash.slice(2) : rawHash;
-      const decoded = decodeURIComponent(maybe);
-      const slug = decoded.replace(/\.[^.]+$/, "");
-      const path = location.pathname;
-      const dir = path.slice(0, path.lastIndexOf("/") + 1);
-      return { dir, slug };
-    }
+const getContext = () => {
+  // If hash is present, use it directly, e.g. template.html#gas_powered_circus
+  const rawHash = (location.hash || "").replace(/^#/, "");  // strip "#"
+
+  if (rawHash) {
+    const maybe = rawHash.startsWith("h:") ? rawHash.slice(2) : rawHash; // tolerate h:
+    const decoded = decodeURIComponent(maybe);
+    const slug = decoded.replace(/\.[^.]+$/, ""); // strip .md / .html if someone adds it
     const path = location.pathname;
     const dir = path.slice(0, path.lastIndexOf("/") + 1);
-    const file = path.slice(path.lastIndexOf("/") + 1);
-    const slug = file.replace(/\.[^.]+$/, "");
     return { dir, slug };
-  };
+  }
+
+  // fallback — filename based (original behaviour)
+  const path = location.pathname;
+  const dir = path.slice(0, path.lastIndexOf("/") + 1);
+  const file = path.slice(path.lastIndexOf("/") + 1);
+  const slug = file.replace(/\.[^.]+$/, "");
+  return { dir, slug };
+};
 
   const formatTitle = (raw) =>
     raw.replace(/[-_]/g, " ")
@@ -107,7 +111,7 @@
   ];
 
   // ---------- main ----------
-  async function loadSlug() {
+  document.addEventListener("DOMContentLoaded", async () => {
     const { dir, slug } = getContext();
 
     // Title
@@ -117,30 +121,36 @@
     if (titleEl) titleEl.textContent = title;
 
     // --- Images (no flash of fallback) ---
-    const hero = document.getElementById("hero-image");
-    const caption = document.getElementById("hero-caption");
-    if (hero) hero.style.visibility = "hidden";
-    const locals = await findLocalImages(dir, slug);
+const hero = document.getElementById("hero-image");
+const caption = document.getElementById("hero-caption");
 
-    const start = (urls) => {
-      if (!urls || !urls.length || !hero) return;
-      let i = 0;
-      const show = () => {
-        const u = urls[i];
-        hero.onload = () => { hero.style.visibility = "visible"; };
-        hero.src = u + (u.includes("?") ? "&" : "?") + "r=" + Math.random().toString(36).slice(2,7);
-      };
-      show();
-      if (caption) caption.textContent = `Image chain slideshow (${urls.length} images, 6s each)`;
-      return setInterval(() => { i = (i + 1) % urls.length; show(); }, 6000);
-    };
+// Hide image until we know the real source
+if (hero) hero.style.visibility = "hidden";
 
-    let timer = null;
-    if (locals && locals.length) {
-      timer = start(locals);
-    } else {
-      timer = start(FALLBACK_IMAGES);
-    }
+const locals = await findLocalImages(dir, slug);
+
+const start = (urls) => {
+  if (!urls || !urls.length || !hero) return;
+  let i = 0;
+  const show = () => {
+    const u = urls[i];
+    hero.onload = () => { hero.style.visibility = "visible"; };
+    hero.src = u + (u.includes("?") ? "&" : "?") + "r=" + Math.random().toString(36).slice(2,7);
+  };
+  show();
+  if (caption) caption.textContent = `Image chain slideshow (${urls.length} images, 6s each)`;
+  return setInterval(() => { i = (i + 1) % urls.length; show(); }, 6000);
+};
+
+let timer = null;
+
+// Prefer locals; only use fallback if none
+if (locals && locals.length) {
+  timer = start(locals);
+} else {
+  // last resort
+  timer = start(FALLBACK_IMAGES);
+}
 
     // Main markdown
     const mdEl = $("#md-content");
@@ -154,7 +164,7 @@
       } catch {}
     }
 
-    // Top banner
+    // Top banner (exactly as requested)
     {
       const el = $("#top-banner");
       if (el) {
@@ -168,7 +178,7 @@
       }
     }
 
-    // Bottom banner
+    // Bottom banner (identical to top, just _bottom)
     {
       const el = $("#bottom-banner");
       if (el) {
@@ -204,4 +214,25 @@
       videoEl.loop = true;
       videoEl.muted = true;
       videoEl.controls = true;
-      video
+      videoEl.style.width = "100%";
+      videoEl.style.border = "1px solid var(--border)";
+      videoEl.style.borderRadius = "6px";
+      videoEl.style.display = "block";
+      videoEl.addEventListener("timeupdate", () => {
+        if (videoEl.currentTime >= 6) videoEl.pause();
+      });
+
+      const cap = document.createElement("figcaption");
+      cap.textContent = "Video loaded by filename convention";
+      cap.style.marginTop = "8px";
+      cap.style.color = "var(--fg-dim)";
+      cap.style.fontSize = ".9rem";
+      cap.style.textAlign = "center";
+      cap.style.opacity = ".85";
+
+      wrapper.appendChild(videoEl);
+      wrapper.appendChild(cap);
+      videoContainer.appendChild(wrapper);
+    }
+  });
+})();
