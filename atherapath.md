@@ -19,7 +19,7 @@ Check out our latest glyphs — each one a portal, a signal, a mirror:
 - [The Engineers Fog](https://atherapath.github.io/landing/glyph.html#the_engineers_fog)  
 - [The Green Man Myth](https://atherapath.github.io/landing/glyph.html#the_green_man_myth)  
 - [Digital Interruption](https://atherapath.github.io/landing/glyph.html#digital_interruption)  
-- [Workflow](https://atherapath.github.io/landing/glyph.html#workflow)
+- [Macro Vs Micro](https://atherapath.github.io/landing/glyph.html#macro_vs_micro)
 
 ---
 
