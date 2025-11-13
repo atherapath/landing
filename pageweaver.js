@@ -1,36 +1,37 @@
-/* AtheraPath – PageWeaver (clean symmetric banners, no fallback) */
+/* AtheraPath – PageWeaver (sequential hero-first load, lean image chain, no remote fallbacks) */
 
 (() => {
   // ---------- tiny utils ----------
   const $ = (sel) => document.querySelector(sel);
 
   // ---------- simple hash-based slug support (raw hash = slug) ----------
-const getContext = () => {
-  // If hash is present, use it directly, e.g. template.html#gas_powered_circus
-  const rawHash = (location.hash || "").replace(/^#/, "");  // strip "#"
+  const getContext = () => {
+    // If hash is present, use it directly, e.g. glyph.html#gas_powered_circus
+    const rawHash = (location.hash || "").replace(/^#/, ""); // strip "#"
 
-  if (rawHash) {
-    const maybe = rawHash.startsWith("h:") ? rawHash.slice(2) : rawHash; // tolerate h:
-    const decoded = decodeURIComponent(maybe);
-    const slug = decoded.replace(/\.[^.]+$/, ""); // strip .md / .html if someone adds it
+    if (rawHash) {
+      const maybe = rawHash.startsWith("h:") ? rawHash.slice(2) : rawHash; // tolerate h:
+      const decoded = decodeURIComponent(maybe);
+      const slug = decoded.replace(/\.[^.]+$/, ""); // strip .md / .html if someone adds it
+      const path = location.pathname;
+      const dir = path.slice(0, path.lastIndexOf("/") + 1);
+      return { dir, slug };
+    }
+
+    // fallback — filename based (original behaviour)
     const path = location.pathname;
     const dir = path.slice(0, path.lastIndexOf("/") + 1);
+    const file = path.slice(path.lastIndexOf("/") + 1);
+    const slug = file.replace(/\.[^.]+$/, "");
     return { dir, slug };
-  }
-
-  // fallback — filename based (original behaviour)
-  const path = location.pathname;
-  const dir = path.slice(0, path.lastIndexOf("/") + 1);
-  const file = path.slice(path.lastIndexOf("/") + 1);
-  const slug = file.replace(/\.[^.]+$/, "");
-  return { dir, slug };
-};
+  };
 
   const formatTitle = (raw) =>
-    raw.replace(/[-_]/g, " ")
-       .split(" ")
-       .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-       .join(" ");
+    raw
+      .replace(/[-_]/g, " ")
+      .split(" ")
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(" ");
 
   const mdToHtml = (md) => {
     const esc = md.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -44,7 +45,7 @@ const getContext = () => {
       .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
       .replace(/\*(.+?)\*/g, "<em>$1</em>")
       .replace(/`([^`]+?)`/g, "<code>$1</code>")
-      // 🔽 CHANGE #1: links now open in SAME TAB (no target="_blank")
+      // links open in SAME TAB (no target="_blank")
       .replace(/\[([^\]]+?)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2">$1</a>');
     html = html
       .split(/\n{2,}/)
@@ -64,7 +65,8 @@ const getContext = () => {
     return html;
   };
 
-  const probeImage = (url) =>
+  // --- Image helpers: hero-first JPG load, then background chain discovery ---
+  const probeJpg = (url) =>
     new Promise((resolve) => {
       const img = new Image();
       img.onload = () => resolve(url);
@@ -74,51 +76,60 @@ const getContext = () => {
       img.src = url + (url.includes("?") ? "&" : "?") + "cb=" + Date.now();
     });
 
-  const findLocalImages = async (dir, slug) => {
-    const suffixes = ["", "_2", "_3", "_4", "_5", "_6"];
-    const exts = [".jpg", ".jpeg", ".png", ".webp"];
-    const results = [];
-    for (const sfx of suffixes) {
-      for (const ext of exts) {
-        const ok = await probeImage(`${dir}${slug}${sfx}${ext}`);
-        if (ok) results.push(ok);
+  const setupImages = (dir, slug) => {
+    const hero = document.getElementById("hero-image");
+    const caption = document.getElementById("hero-caption");
+    const figure = hero ? hero.closest("figure") || hero.parentElement : null;
+
+    if (!hero) return;
+
+    hero.style.visibility = "hidden";
+
+    const primaryUrl = `${dir}${slug}.jpg`;
+
+    // Once the first hero image has loaded, we can use the "spare" time
+    // to probe for slug_2.jpg..slug_6.jpg in the background.
+    const onFirstLoad = () => {
+      hero.style.visibility = "visible";
+      if (caption) {
+        caption.textContent = "Image loaded by filename convention";
       }
-    }
-    return results;
-  };
 
-  // last-resort fallbacks if no locals are found for the chain
-  const FALLBACK_IMAGES = [
-    "https://picsum.photos/seed/pw1/1600/900.jpg",
-    "https://picsum.photos/seed/pw2/1600/900.jpg",
-    "https://picsum.photos/seed/pw3/1600/900.jpg",
-    "https://picsum.photos/seed/pw4/1600/900.jpg",
-    "https://picsum.photos/seed/pw5/1600/900.jpg",
-    "https://picsum.photos/seed/pw6/1600/900.jpg",
-  ];
+      // Now, quietly look for extra frames in sequence.
+      (async () => {
+        const extras = [];
+        for (let i = 2; i <= 6; i++) {
+          const url = `${dir}${slug}_${i}.jpg`;
+          const found = await probeJpg(url);
+          if (!found) break; // stop at first missing link
+          extras.push(found);
+        }
 
-  const startSlideshow = (hero, caption, locals) => {
-    if (!hero) return null;
+        if (!extras.length) return;
 
-    const urls = (locals && locals.length) ? locals : FALLBACK_IMAGES;
-    let i = 0;
+        const urls = [primaryUrl, ...extras];
+        if (caption) {
+          caption.textContent = `Image chain slideshow (${urls.length} images, 6s each)`;
+        }
 
-    const show = () => {
-      const u = urls[i];
-      hero.onload = () => {
-        hero.style.visibility = "visible";
-      };
-      hero.src = u + (u.includes("?") ? "&" : "?") + "r=" + Math.random().toString(36).slice(2, 7);
+        let idx = 0;
+        setInterval(() => {
+          idx = (idx + 1) % urls.length;
+          hero.src = urls[idx];
+        }, 6000);
+      })();
     };
 
-    show();
-    if (caption) {
-      caption.textContent = `Image chain slideshow (${urls.length} images, 6s each)`;
-    }
-    return setInterval(() => {
-      i = (i + 1) % urls.length;
-      show();
-    }, 6000);
+    // If primary fails, we hide the figure entirely and never check extra images.
+    const onError = () => {
+      if (figure) figure.style.display = "none";
+    };
+
+    hero.addEventListener("load", onFirstLoad, { once: true });
+    hero.addEventListener("error", onError, { once: true });
+
+    // Kick off the primary load immediately.
+    hero.src = primaryUrl;
   };
 
   document.addEventListener("DOMContentLoaded", async () => {
@@ -130,78 +141,40 @@ const getContext = () => {
     const titleEl = $("#page-title");
     if (titleEl) titleEl.textContent = title;
 
-    // --- Images (no flash of fallback) ---
-const hero = document.getElementById("hero-image");
-const caption = document.getElementById("hero-caption");
+    // --- Images: hero-first behaviour ---
+    setupImages(dir, slug);
 
-// Hide image until we know the real source
-if (hero) hero.style.visibility = "hidden";
+    // Helper to load a markdown file into a target element,
+    // and hide the element completely if the file is missing / empty.
+    const loadMarkdownSection = async (selector, path) => {
+      const el = $(selector);
+      if (!el) return;
 
-const locals = await findLocalImages(dir, slug);
-
-const start = (urls) => {
-  if (!urls || !urls.length || !hero) return null;
-
-  const show = (u) => {
-    hero.onload = () => { hero.style.visibility = "visible"; };
-    hero.src = u + (u.includes("?") ? "&" : "?") + "r=" + Math.random().toString(36).slice(2, 7);
-  };
-
-  let i = 0;
-  show(urls[i]);
-  if (caption) caption.textContent = `Image chain slideshow (${urls.length} images, 6s each)`;
-  return setInterval(() => { i = (i + 1) % urls.length; show(urls[i]); }, 6000);
-};
-
-let timer = null;
-
-// Prefer locals; only use fallback if none
-if (locals && locals.length) {
-  timer = start(locals);
-} else {
-  // last resort
-  timer = start(FALLBACK_IMAGES);
-}
-
-    // Main markdown
-    const mdEl = $("#md-content");
-    if (mdEl) {
       try {
-        const res = await fetch(`${dir}${slug}.md?cb=${Date.now()}`, { cache: "no-store" });
-        if (res.ok) {
-          const text = await res.text();
-          if (text && text.trim()) mdEl.innerHTML = mdToHtml(text);
+        const res = await fetch(path + "?cb=" + Date.now(), { cache: "no-store" });
+        if (!res.ok) {
+          el.style.display = "none";
+          return;
         }
-      } catch {}
-    }
-
-    // Top banner (exactly as requested)
-    {
-      const el = $("#top-banner");
-      if (el) {
-        try {
-          const res = await fetch(`${dir}${slug}_top.md?cb=${Date.now()}`, { cache: "no-store" });
-          if (res.ok) {
-            const text = await res.text();
-            if (text && text.trim()) el.innerHTML = mdToHtml(text);
-          }
-        } catch {}
+        const text = await res.text();
+        if (!text || !text.trim()) {
+          el.style.display = "none";
+          return;
+        }
+        el.innerHTML = mdToHtml(text);
+      } catch {
+        el.style.display = "none";
       }
-    }
+    };
 
-    // Bottom banner (exactly as requested)
-    {
-      const el = $("#bottom-banner");
-      if (el) {
-        try {
-          const res = await fetch(`${dir}${slug}_bottom.md?cb=${Date.now()}`, { cache: "no-store" });
-          if (res.ok) {
-            const text = await res.text();
-            if (text && text.trim()) el.innerHTML = mdToHtml(text);
-          }
-        } catch {}
-      }
-    }
+    // Main markdown (slug.md)
+    await loadMarkdownSection("#md-content", `${dir}${slug}.md`);
+
+    // Top banner (slug_top.md)
+    await loadMarkdownSection("#top-banner", `${dir}${slug}_top.md`);
+
+    // Bottom banner (slug_bottom.md)
+    await loadMarkdownSection("#bottom-banner", `${dir}${slug}_bottom.md`);
 
     // Optional video block sitting neatly between main content and bottom banner
     const videoContainer = $("#video-container");
@@ -214,7 +187,9 @@ if (locals && locals.length) {
       try {
         const head = await fetch(videoUrl, { method: "HEAD", cache: "no-store" });
         if (head.ok) finalUrl = videoUrl;
-      } catch {}
+      } catch {
+        // ignore
+      }
 
       if (!finalUrl) {
         // last-resort example clip
@@ -255,7 +230,7 @@ if (locals && locals.length) {
     }
   });
 
-  // 🔽 CHANGE #2: when hash changes (#slug), behave like you hit refresh
+  // On hash change (#slug) behave like you hit refresh
   window.addEventListener("hashchange", () => {
     window.location.reload();
   });
