@@ -48,7 +48,7 @@
       // 🔗 NOTE: still opens https links in new tab – see note below to change this
       .replace(
         /\[([^\]]+?)\]\((https?:\/\/[^\s)]+)\)/g,
-        '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+        '<a href="$2"</a>'
       );
 
     html = html
