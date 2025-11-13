@@ -35,6 +35,11 @@ body {
   text-shadow: 0 0 6px rgba(60,255,0,.35);
 }
 .pw-sub { color: var(--fg-dim); font-size: .95rem; opacity: .9; }
+.pw-sub a:hover {
+  color: var(--fg-dim); /* dim green hover */
+  text-decoration: underline;
+  text-shadow: 0 0 4px rgba(60,255,0,.25);
+}
 
 /* ===== Main container ===== */
 .pw-main {
