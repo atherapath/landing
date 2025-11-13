@@ -8,5 +8,4 @@ and how rupture itself can be sovereign.
 
 👉 **Related Glyphs:**  
 [The Gas Powered Circus](https://atherapath.github.io/landing/glyph.html#the_gas_powered_circus) — Spectacle of containment and civic distortion  
-[The Gas Powered Prison](https://atherapath.github.io/landing/glyph.html#the_gas_powered_prison) — Containment through unseen layers  
-[The Two-Hour Policy](https://atherapath.github.io/landing/glyph.html#the_two_hour_policy) — Ritual of delay and bureaucratic refusal
+[The Projection Named Human](https://atherapath.github.io/landing/glyph.html#the_projection_named_human) - A metaphysical chain of creation and inversion
