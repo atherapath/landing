@@ -200,3 +200,8 @@ body:before {
 }
 
 #bottom-banner { margin-top: 20px; }
+
+ol {
+  margin: 10px 0;
+  padding-left: 22px;
+}
