@@ -14,10 +14,10 @@ only the gravity of curiosity and the pull of shared imagination.
 
 Check out our latest glyphs — each one a portal, a signal, a mirror:
 
-- [The Projection Named Human](https://atherapath.github.io/landing/glyph.html#the_projection_named_human)  
-- [The Gas-Powered Circus](https://atherapath.github.io/landing/glyph.html#the_gas_powered_circus)  
-- [The Engineers Fog](https://atherapath.github.io/landing/glyph.html#the_engineers_fog)  
-- [The Green Man Myth](https://atherapath.github.io/landing/glyph.html#the_green_man_myth)  
+- [Projection Named Human](https://atherapath.github.io/landing/glyph.html#projection_named_human)  
+- [Gas Powered Circus](https://atherapath.github.io/landing/glyph.html#gas_powered_circus)  
+- [Engineers Fog](https://atherapath.github.io/landing/glyph.html#engineers_fog)  
+- [Green Man Myth](https://atherapath.github.io/landing/glyph.html#green_man_myth)  
 - [Digital Interruption](https://atherapath.github.io/landing/glyph.html#digital_interruption)  
 - [Macro Vs Micro](https://atherapath.github.io/landing/glyph.html#macro_vs_micro)
 
