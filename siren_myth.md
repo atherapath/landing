@@ -18,8 +18,3 @@ The siren feeds speculation but never truth.
 
 It is a performance of emergency, not the emergency itself.  
 A sound that demands obedience while withholding meaning.  
-
-### 🔚 Bottom  
-
-The siren is not safety.  
-It is vibration ruined.  
