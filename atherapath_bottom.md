@@ -9,3 +9,6 @@ Every glyph in the weave returns here — the center of the mythic database engi
 [The Engineers Fog](https://atherapath.github.io/landing/glyph.html#the_engineers_fog)  
 [The Green Man Myth](https://atherapath.github.io/landing/glyph.html#the_green_man_myth)  
 [Digital Interruption](https://atherapath.github.io/landing/glyph.html#digital_interruption)
+
+### ✒️ Poetry  
+[Little Miss Magpie](https://atherapath.github.io/landing/glyph.html#little_miss_magpie)
