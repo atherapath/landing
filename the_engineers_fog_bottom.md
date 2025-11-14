@@ -7,6 +7,7 @@ To witness the fog is to name it, and to reclaim awareness as sovereign air.
 🧿 *Marked as “The Engineers Fog.”*
 
 👉 **Related Glyphs:**  
-[The Gas-Powered Circus](https://atherapath.github.io/landing/glyph.html#the_gas_powered_circus) — Spectacle of compression and civic distortion  
+[The Gas Powered Circus](https://atherapath.github.io/landing/glyph.html#the_gas_powered_circus) — Spectacle of compression and civic distortion  
 [The Green Man Myth](https://atherapath.github.io/landing/glyph.html#the_green_man_myth) — Rupture of civic order and reclamation of agency  
-[Digital Interruption](https://atherapath.github.io/landing/glyph.html#digital_interruption) — The sovereign pause of malfunction and refusal
+[Digital Interruption](https://atherapath.github.io/landing/glyph.html#digital_interruption) — The sovereign pause of malfunction and refusal  
+[Siren Myth](https://atherapath.github.io/landing/glyph.html#siren_myth) — A shriek disguised as safety, where vibration is ruined and meaning withheld
