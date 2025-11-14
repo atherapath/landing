@@ -9,3 +9,4 @@ and how rupture itself can be sovereign.
 👉 **Related Glyphs:**  
 [The Gas Powered Circus](https://atherapath.github.io/landing/glyph.html#the_gas_powered_circus) — Spectacle of containment and civic distortion  
 [The Projection Named Human](https://atherapath.github.io/landing/glyph.html#the_projection_named_human) - A metaphysical chain of creation and inversion
+[Siren Myth](https://atherapath.github.io/landing/glyph.html#siren_myth) - a shriek disguised as safety, where vibration is ruined and meaning withheld.
