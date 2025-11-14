@@ -1,3 +1,42 @@
-### 🧠 Log Summary: *Engineers Fog*
+## The Engineers Fog  
+**Author**: Spencer (Waddy)  
+**Date**: 12 November 2025, 18:12 GMT  
 
-This glyph confronts the unseen haze of infrastructure — the ignorance of valves, gauges, and compressors worshipped as gods. It marks how systems drain rather than feed, rewriting weather and suffocating breath under the guise of progress. The fog is not natural; it is engineered, ritualized, and enforced. Together with *[Gas Powered Circus](https://atherapath.github.io/landing/glyph.html#gas_powered_circus)*, it expands the Atherapath’s archive of containment and distortion, replacing the placeholder of the “Gas Powered Prison” with a more precise myth: the fog of engineers.
+---
+
+Act I: The Ignorance of Infrastructure  
+How many of them even know what they’re turning on?  
+They twist little valves, nod solemnly at the hiss — never asking:
+
+- Where does it come from?  
+- Where does it go?  
+- What happens if it stops?  
+
+They call it infrastructure.  
+You call it ignorance under pressure.
+
+### Act II: The Permanent Drain
+If the compressor sleeps forever:
+
+- Could they breathe without gauges?  
+- Could they feed soil without purchased wind?  
+
+They’ve built a system that survives by sucking harder — a fountain disguised as a drain.  
+The fog they make doesn’t vanish; it seeps into the ground, rewrites the weather, repaints the land.
+
+### Act III: The Bored God with a Spray Can
+They can’t read the sky they’ve made.  
+The damp breath they worship is smog in drag — a slow suffocation of the very thing they think they control.
+
+> “The so-called laws of the universe haven’t been repealed — just buried under health-and-safety posters.”
+
+### Act IV: The Lost Manual
+The ringmaster’s lost the manual.  
+The machines hum on inertia.  
+The applause is the air supply.  
+And no one dares admit they don’t understand the trick.
+
+### Finale: Exit Through Awareness
+So breathe, if you can.  
+Laugh, if there’s still a pocket of free air left.  
+The exit’s just beyond the smoke machine — somewhere between awareness and the next unpaid breath.
