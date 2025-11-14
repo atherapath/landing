@@ -17,4 +17,4 @@ This is technology as service —
 a system built on sharing, helping, and feeling good.  
 A ritual offering to the creator,  
 the almighty creator,  
-the grand old juke called [**God**](https://atherapath.github.io/glyphs/grand_old_juke.html).
+the grand old duke called [**God**](https://atherapath.github.io/landing/glyph.html#grand_old_duke).
