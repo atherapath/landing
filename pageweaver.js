@@ -34,34 +34,69 @@
       .join(" ");
 
   const mdToHtml = (md) => {
-    const esc = md.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    // Escape &, < but NOT ">" so we can detect blockquotes
+    const esc = md
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;");
+
     let html = esc
+      // headings
       .replace(/^###### (.*)$/gm, "<h6>$1</h6>")
       .replace(/^##### (.*)$/gm, "<h5>$1</h5>")
       .replace(/^#### (.*)$/gm, "<h4>$1</h4>")
       .replace(/^### (.*)$/gm, "<h3>$1</h3>")
       .replace(/^## (.*)$/gm, "<h2>$1</h2>")
       .replace(/^# (.*)$/gm, "<h1>$1</h1>")
+      // strong / em / inline code
       .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
       .replace(/\*(.+?)\*/g, "<em>$1</em>")
       .replace(/`([^`]+?)`/g, "<code>$1</code>")
       // links open in SAME TAB (no target="_blank")
       .replace(/\[([^\]]+?)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2">$1</a>');
+
     html = html
       .split(/\n{2,}/)
       .map((chunk) => {
-        if (/^<h\d>/.test(chunk)) return chunk;
-        if (/^\s*[-*] /.test(chunk)) {
-          const items = chunk
+        const trimmed = chunk.trim();
+        if (!trimmed) return "";
+
+        // already-converted headings
+        if (/^<h\d>/.test(trimmed)) return trimmed;
+
+        // blockquotes: lines starting with ">"
+        if (/^>\s?/.test(trimmed)) {
+          const inner = trimmed.replace(/^>\s?/gm, "");
+          return `<blockquote>${inner.replace(/\n/g, "<br>")}</blockquote>`;
+        }
+
+        // ordered lists: "1. item"
+        if (/^\s*\d+\.\s/m.test(trimmed)) {
+          const items = trimmed
+            .split(/\n/)
+            .map((l) => l.replace(/^\s*\d+\.\s/, ""))
+            .filter((li) => li.trim().length)
+            .map((li) => `<li>${li}</li>`)
+            .join("");
+          return `<ol>${items}</ol>`;
+        }
+
+        // unordered lists: "- item" or "* item"
+        if (/^\s*[-*] /.test(trimmed)) {
+          const items = trimmed
             .split(/\n/)
             .map((l) => l.replace(/^\s*[-*] /, ""))
+            .filter((li) => li.trim().length)
             .map((li) => `<li>${li}</li>`)
             .join("");
           return `<ul>${items}</ul>`;
         }
-        return `<p>${chunk.replace(/\n/g, "<br>")}</p>`;
+
+        // default: paragraph, preserve single newlines as <br>
+        return `<p>${trimmed.replace(/\n/g, "<br>")}</p>`;
       })
+      .filter(Boolean)
       .join("\n");
+
     return html;
   };
 
