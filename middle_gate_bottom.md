@@ -7,7 +7,5 @@
 🧿 *Marked as “Middle Gate.”*
 
 👉 **Related Glyphs:**  
-[Projection Named Human](https://atherapath.github.io/landing/glyph.html#projection_named_human) — metaphysical chain of creation and inversion  
-[Gas Powered Circus](https://atherapath.github.io/landing/glyph.html#gas_powered_circus) — containment through unseen layers  
-[Two Hour Policy](https://atherapath.github.io/landing/glyph.html#two_hour_policy) — sabotage disguised as procedure, exclusion masquerading as fairness  
-[Siren Myth](https://atherapath.github.io/landing/glyph.html#siren_myth) — urgency weaponized, vibration ruined
+[Projection Named Human](https://atherapath.github.io/landing/glyph.html#projection_named_human)  
+[Digital Interruption](https://atherapath.github.io/landing/glyph.html#digital_interruption)
