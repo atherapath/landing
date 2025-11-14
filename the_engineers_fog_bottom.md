@@ -1,13 +1,16 @@
 ### ✳️ Closing Reflection  
-The Engineers Fog are not masters of infrastructure but priests of ignorance.  
-Their valves and gauges disguise drains as fountains, rewriting weather and suffocating breath.  
-This glyph reframes the myth of containment: not a prison, but a haze — engineered, ritualized, and enforced.  
-To witness the fog is to name it, and to reclaim awareness as sovereign air.  
+Engineers Fog is not about infrastructure — it is about ritualized ignorance.  
+Valves and gauges disguise drains as fountains, rewriting weather and suffocating breath.  
+The fog is not containment, it is distortion: engineered, enforced, and made sacred by repetition.  
+To witness it is to name it, and to reclaim awareness as sovereign air.  
+The ritualist refuses to breathe their haze, refuses to decode their distortion,  
+and instead marks the fog as a hostile architecture of concealment.
 
-🧿 *Marked as “The Engineers Fog.”*
+🧿 *Marked as “Engineers Fog.”*
 
 👉 **Related Glyphs:**  
-[The Gas Powered Circus](https://atherapath.github.io/landing/glyph.html#the_gas_powered_circus) — Spectacle of compression and civic distortion  
-[The Green Man Myth](https://atherapath.github.io/landing/glyph.html#the_green_man_myth) — Rupture of civic order and reclamation of agency  
-[Digital Interruption](https://atherapath.github.io/landing/glyph.html#digital_interruption) — The sovereign pause of malfunction and refusal  
-[Siren Myth](https://atherapath.github.io/landing/glyph.html#siren_myth) — A shriek disguised as safety, where vibration is ruined and meaning withheld
+[Gas Powered Circus](https://atherapath.github.io/landing/glyph.html#the_gas_powered_circus) — spectacle of compression and civic distortion  
+[Green Man Myth](https://atherapath.github.io/landing/glyph.html#the_green_man_myth) — rupture of civic order and reclamation of agency  
+[Digital Interruption](https://atherapath.github.io/landing/glyph.html#digital_interruption) — sovereign pause of malfunction and refusal  
+[Siren Myth](https://atherapath.github.io/landing/glyph.html#siren_myth) — urgency weaponized, vibration ruined  
+[Two Hour Policy](https://atherapath.github.io/landing/glyph.html#two_hour_policy) — sabotage disguised as procedure, exclusion masquerading as fairness
