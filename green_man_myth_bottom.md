@@ -10,4 +10,6 @@ and how rupture itself can be sovereign.
 [Gas Powered Circus](https://atherapath.github.io/landing/glyph.html#gas_powered_circus) — spectacle of containment and civic distortion  
 [Projection Named Human](https://atherapath.github.io/landing/glyph.html#projection_named_human) — metaphysical chain of creation and inversion  
 [Siren Myth](https://atherapath.github.io/landing/glyph.html#siren_myth) — urgency weaponized, vibration ruined  
-[Two Hour Policy](https://atherapath.github.io/landing/glyph.html#two_hour_policy) — sabotage disguised as procedure, exclusion masquerading as fairness
+[Two Hour Policy](https://atherapath.github.io/landing/glyph.html#two_hour_policy) — sabotage disguised as procedure, exclusion masquerading as fairness  
+[Learning With Rats](https://atherapath.github.io/landing/glyph.html#learning_with_rats) — scarcity reframed, intrusion marked as sovereign  
+[Rats Poetry](https://atherapath.github.io/landing/glyph.html#rats_poetry) — cadence of distribution, hunger turned into rhyme
