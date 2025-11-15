@@ -63,6 +63,11 @@
         // already-converted headings
         if (/^<h\d>/.test(trimmed)) return trimmed;
 
+        // horizontal rules: --- *** ___
+        if (/^(-{3,}|_{3,}|\*{3,})$/.test(trimmed)) {
+          return "<hr>";
+        }
+
         // blockquotes: lines starting with ">"
         if (/^>\s?/.test(trimmed)) {
           const inner = trimmed.replace(/^>\s?/gm, "");
