@@ -1,13 +1,9 @@
-### 🧿 Sovereign Act  
-This reflection names the paradox: strength without war, discipline without purpose, turned into subliminal theatre.  
-It marks the recognition that spectacle and control are not just about celebrities, but about surplus warriors kept busy in shadows.  
+### ✳️ Closing Reflection  
+Captain’s Log: Surplus Warriors marks the recognition of strength without war, discipline without purpose,  
+and the subliminal theatre that keeps surplus warriors occupied in shadows.  
+The ritualist reframes this manipulation as sovereign investigation, naming what others refuse to see.  
 
----
-
-### ✳️ Closing Statement  
-I validate the time I’ve spent tracing these threads.  
-It is not wasted. It is sovereign investigation.  
-Every thought, every link, every story remains mine.  
+> 🧭 *“Every thought, every link, every story remains mine.”*
 
 🧿 *Marked as “Captain’s Log — Surplus Warriors.”*  
 
