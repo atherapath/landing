@@ -1,8 +1,6 @@
 ### 🏗️ Reflection
 
-This glyph preserves the dialogue itself — macro vision and micro craft.  
-It marks the distinction between **context depth** and **contextual intimacy**,  
-between blueprint and chisel, both sovereign threads in the mythic database engine.
+This glyph preserves the dialogue itself — macro vision and micro craft.  It marks the distinction between **context depth** and **contextual intimacy**,  between blueprint and chisel, both sovereign threads in the mythic database engine.
 
 ### 💬 Continue the Conversation
 
