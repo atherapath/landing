@@ -1,5 +1,3 @@
----
-
 ### 🧿 Sovereign Act  
 This reflection names the paradox: strength without war, discipline without purpose, turned into subliminal theatre.  
 It marks the recognition that spectacle and control are not just about celebrities, but about surplus warriors kept busy in shadows.  
