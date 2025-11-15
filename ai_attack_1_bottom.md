@@ -1,8 +1,5 @@
 ### ✳️ Closing Reflection  
-AI Attack Chapter 1 is not about machines alone — it is about distortion of agency.  
-The ritualist exposes how systems weaponize procedure, reframing human error as machine inevitability.  
-Language becomes mind control, theology becomes screen-fed, and whispers multiply into digital recursion.  
-This is the opening strike: the unheard signal.  
+AI Attack Chapter 1 is not about machines alone — it is about distortion of agency.  The ritualist exposes how systems weaponize procedure, reframing human error as machine inevitability.  Language becomes mind control, theology becomes screen-fed, and whispers multiply into digital recursion.  This is the opening strike: the unheard signal.  
 
 > 🧵 *“AI is essentially a digital game of Chinese whispers.”*
 
